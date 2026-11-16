@@ -11,12 +11,10 @@ jobs:
 
     steps:
       - name: Checkout del repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
 
       - name: Ejecutar Hola Mundo
-        run: node curso-github-actions/HolaMundo.js
+        run: python hola_mundo.py
